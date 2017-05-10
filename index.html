@@ -38,18 +38,18 @@
       and methods in the prototype (base). Unlike C++/C# (where overloads are defined in derived classes), javascript override occurs AFTER the object is created.
     </p>
 
-    <h3>Adding a function BEFORE object creation.</h3>
+    <h4>Adding a function BEFORE object creation.</h4>
     <p>Here is the revised object where the shared function is added to the prototype. Now any Airplane object that calls .fly() is calling the same function. We can test this behavior by revising the prototype.fly() method. Now when .fly() is called on any object,
       they all show the same change.</p>
     <p data-height="733" data-theme-id="0" data-slug-hash="bWLBVe" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/bWLBVe/">Prototype</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
-    <h3>Adding function AFTER object creation.</h3>
+    <h4>Adding function AFTER object creation.</h4>
     <p>In a class based inheritance (c#) a common method would have been added to the base class BEFORE the object is created. With object based inheritance, we can add new functions to the prototype AFTER the object is created. When this is done, all objects
       inherit the newly added function.</p>
     <p data-height="564" data-theme-id="0" data-slug-hash="xdYddm" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Augment prototype" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/xdYddm/">Augment prototype</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
     <h3>Inheriting properties</h3>
-    <p>Properties added to the prototype are inherited by all objects.</p>
+    <p>Properties added to the prototype are inherited by all objects.  When a prototype is augmented with count, the count property becomes available for all Airplane objects.</p>
     <p data-height="749" data-theme-id="0" data-slug-hash="eWVRYx" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Properties" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/eWVRYx/">Prototype Properties</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
     <h3>Overriding properties</h3>
@@ -82,6 +82,10 @@
 
     <p data-height="745" data-theme-id="dark" data-slug-hash="pPaBvM" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Chain" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/pPaBvM/">Prototype Chain</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
+    <h3>Summary</h3>
+    <p>The javascript prototype, prototype chaining, constructor chaining, and
+      overrides are vital features that allows developers to use inheritance
+      efficiently, and dynamically for functions and properties.  </p>
   </section>
 
 
