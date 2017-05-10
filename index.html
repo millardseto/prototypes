@@ -27,19 +27,19 @@
     <p>Code reuse is essential for developing code quickly and reducing maintenance. However, reuse doesnt guarantee efficiency. For example, you can add properties and methods to a "template" object. Then derive new objects from this "template". There is
       code reuse. However when you have multiple objects, every object has it's own copy of properties (generally ok) and functions (not ok). This is very inefficient as it takes up uncessary space and could ultimately affect memory and performance.</p>
 
-    <p>Unlike C# / C++, javascript doesnt use a class inheritance. javascript uses an "object model" based on prototypes (equivalent of a base class).</p>
-
-    <h3>Prototype - the "base class" in javascript</h3>
-    <p>In javascript, every object has a prototype. Properties and functions that are shared with all instances of an object are added to this prototype.</p>
-    <p>When a property or function is referenced, javascript first looks at the current object. If it can't find it, javascript looks at the prototype. Because of this behavior, properties and methods defined in the derived object can "override" the properties
-      and methods in the prototype (base). Unlike C++/C# (where base and derived classes are created), override occurs AFTER the object is created.
-    </p>
+    <p>Unlike C# / C++, javascript doesnt use a class inheritance. Javascript uses an "object model" based on prototypes (equivalent of a base class).</p>
 
     <h3>Inefficient objects</h3>
-    <p data-height="275" data-theme-id="0" data-slug-hash="wdyKZR" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="inefficient object" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/wdyKZR/">inefficient object</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <p data-height="315" data-theme-id="0" data-slug-hash="wdyKZR" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="inefficient object" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/wdyKZR/">inefficient object</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
-    <h3>Adding function BEFORE object creation.</h3>
-    <p>Here is the revised object where the shared function is added to the prototype. Now any object that calls .fly() is calling the same function. We can test this behavior by revising the prototype.fly() method. Now when .fly() is called on any object,
+    <h3>Prototype - the "base class" in javascript</h3>
+    <p>In javascript, every object has a prototype. This prototype acts like a base class.  Properties and functions that are shared with all instances of an object are added to this prototype and accessible to any object instantiated from the given type.</p>
+    <p>When a property or function is referenced, javascript first looks to find it at the current object. If it can't find it, javascript looks at the prototype. Because of this behavior, properties and methods defined in the derived object can "override" the properties
+      and methods in the prototype (base). Unlike C++/C# (where overloads are defined in derived classes), javascript override occurs AFTER the object is created.
+    </p>
+
+    <h3>Adding a function BEFORE object creation.</h3>
+    <p>Here is the revised object where the shared function is added to the prototype. Now any Airplane object that calls .fly() is calling the same function. We can test this behavior by revising the prototype.fly() method. Now when .fly() is called on any object,
       they all show the same change.</p>
     <p data-height="733" data-theme-id="0" data-slug-hash="bWLBVe" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/bWLBVe/">Prototype</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
@@ -50,12 +50,12 @@
 
     <h3>Inheriting properties</h3>
     <p>Properties added to the prototype are inherited by all objects.</p>
-    <p data-height="449" data-theme-id="0" data-slug-hash="eWVRYx" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Properties" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/eWVRYx/">Prototype Properties</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <p data-height="749" data-theme-id="0" data-slug-hash="eWVRYx" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Properties" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/eWVRYx/">Prototype Properties</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
     <h3>Overriding properties</h3>
     <p>Overriding properties creates a "shadow" that hides the property in the prototype. In this example when fly() is called, the object (this) is dynamically augmented with a new instance property. When the instance property is referenced, javascript
       looks first at the object that called fly(). Since it finds the property in the object, the property in the prototype is ignored. You can still access the base property through the prototype.</p>
-    <p data-height="580" data-theme-id="0" data-slug-hash="eWVRYx" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Properties" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/eWVRYx/">Prototype Properties</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <p data-height="780" data-theme-id="0" data-slug-hash="eWVRYx" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Properties" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/eWVRYx/">Prototype Properties</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
     <h3>Setting default values efficiently</h3>
     <p>Suppose you want to set a flag to a default value. You could just set default values in the constructor. Although this works, every object has it's own property. And, initially they all have the same value. This is inefficient use of space. A better
