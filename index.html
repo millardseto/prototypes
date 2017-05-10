@@ -76,7 +76,9 @@
     <p>Objects can inherit properties and functions through multiple prototypes.
     Inherited objects are connected through their prototypes.  A series of these
     connections is called the prototype chain.  The link is achieved by assigning
-    : inheritedObject.prototype = new baseObject().  </p>
+    : inheritedObject.prototype = new baseObject().  The constructor is also inherited.
+    So, to get the right constructor to run, you must also set the constructor property
+    on the prototype:  MyObject.prototype.constructor = MyObject;</p>
 
     <p data-height="745" data-theme-id="dark" data-slug-hash="pPaBvM" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Chain" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/pPaBvM/">Prototype Chain</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
