@@ -20,46 +20,7 @@
     <div class="page-header">
       <h1>Javascript <small>Prototypes</small></h1>
     </div>
-
-
   </header>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Brand</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">Link <span class="sr-only">(current)</span></a></li>
-          <li><a href="http://www.google.com">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
 
   <section>
     <h3>Code Reuse != Efficiency</h3>
@@ -112,16 +73,17 @@
     <p data-height="441" data-theme-id="0" data-slug-hash="NjyJRy" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="NjyJRy" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/NjyJRy/">NjyJRy</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
     <h3>Prototype Chain</h3>
-    <p>Objects can inherit properties and function through multiple prototypes.
-    This is called the prototype chain.</p>
+    <p>Objects can inherit properties and functions through multiple prototypes.
+    Inherited objects are connected through their prototypes.  A series of these
+    connections is called the prototype chain.  The link is achieved by assigning
+    : inheritedObject.prototype = new baseObject().  </p>
 
     <p data-height="745" data-theme-id="dark" data-slug-hash="pPaBvM" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Chain" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/pPaBvM/">Prototype Chain</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
   </section>
 
-  <input class="btn btn-default" type="button" id="btnGo" value="Input">
 
-  <footer>footer</footer>
+  <footer>Javascript Prototypes</footer>
 
 
   <!-- jquery -->
