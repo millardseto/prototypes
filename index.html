@@ -32,21 +32,18 @@
       However, reuse doesnt guarantee efficiency. For example, you can add properties
       and methods to a "template" object. Then derive new objects from this "template".
       There is code reuse. However when you have multiple objects, every object has
-      it's own copy of properties (generally ok) and functions (not ok). This is
-      very inefficient as it takes up uncessary space and could ultimately affect
-      memory and performance.</p>
+      it's own copy of properties and functions (not ok). This is very inefficient
+      as it takes up uncessary space and could ultimately affect memory and performance.</p>
 
-    <p>Unlike C# / C++, javascript doesnt use a class inheritance. Javascript uses an
-      "object model" based on prototypes (equivalent of a base class). It is also
-      called "prototypal inheritance"</p>
-
-    <h3>Inefficient objects</h3>
     <p data-height="315" data-theme-id="0" data-slug-hash="wdyKZR" data-default-tab="js"
       data-user="MillardSeto" data-embed-version="2" data-pen-title="inefficient object"
       class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/wdyKZR/">inefficient object</a>      by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>)
       on <a href="http://codepen.io">CodePen</a>.</p>
 
     <h3>Prototype - the "base class" in javascript</h3>
+    <p>Unlike C# / C++, javascript doesnt use a <a href="https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/classes-and-structs/inheritance">class inheritance</a>.
+      Javascript uses an "object model" based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype">prototypes</a>
+      (equivalent of a base class). It is also called "prototypal inheritance"</p>
     <p>In javascript, every object has a prototype. This prototype acts like a base
       class. Properties and functions that are shared with all instances of an object
       are added to this prototype and accessible to any object instantiated from
@@ -81,7 +78,8 @@
     <h3>Inheriting properties</h3>
     <p>Properties added to the prototype are inherited by all objects. When a prototype
       is augmented with count, the count property becomes available for all Airplane
-      objects.</p>
+      objects.
+    </p>
     <p data-height="749" data-theme-id="0" data-slug-hash="eWVRYx" data-default-tab="js"
       data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Properties"
       class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/eWVRYx/">Prototype Properties</a>      by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>)
@@ -116,8 +114,7 @@
 
     <h3>Where is my property?</h3>
     <p>How can you tell if your object contains a specific property or if the property
-      is in the prototype? Javascript provides a hasOwnProperty() that returns true
-      if the given property exists in the object.</p>
+      is in the prototype? Javascript provides a <a href="hasownproperty">hasOwnProperty()</a>      that returns true if the given property exists in the object.</p>
 
     <p data-height="441" data-theme-id="0" data-slug-hash="NjyJRy" data-default-tab="js"
       data-user="MillardSeto" data-embed-version="2" data-pen-title="NjyJRy" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/NjyJRy/">NjyJRy</a> by
@@ -127,15 +124,25 @@
     <h3>Prototype Chain</h3>
     <p>Objects can inherit properties and functions through multiple prototypes. Inherited
       objects are connected through their prototypes. A series of these connections
-      is called the prototype chain. The link is achieved by assigning : inheritedObject.prototype
-      = new baseObject(). The constructor is also inherited. So, to get the right
-      constructor to run, you must also set the constructor property on the prototype:
-      MyObject.prototype.constructor = MyObject;</p>
+      is called the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">prototype chain</a>.
+      The link is achieved by assigning : inheritedObject.prototype = new baseObject().
+      The constructor is also inherited. So, to get the right constructor to run,
+      you should also set the constructor property on the prototype: MyObject.prototype.constructor
+      = MyObject; This is not required but it is considered best practice.</p>
 
     <p data-height="745" data-theme-id="dark" data-slug-hash="pPaBvM" data-default-tab="js"
       data-user="MillardSeto" data-embed-version="2" data-pen-title="Prototype Chain"
       class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/pPaBvM/">Prototype Chain</a>      by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>)
       on <a href="http://codepen.io">CodePen</a>.</p>
+
+    <h3>Object - mother of all objects</h3>
+    <p>Nearly everything is an object and every object has a prototype.  This
+      prototype points to it's parent which in turn points to its parent.
+      If you follow the prototype chain, eventually you hit the top of the chain
+      and reach "Object".  All object are inherited from Object which already has
+      methods such as toString.  You can test this by doing .toString to your object.
+      <p data-height="265" data-theme-id="dark" data-slug-hash="QvmwGX" data-default-tab="js" data-user="MillardSeto" data-embed-version="2" data-pen-title="Base Object" class="codepen">See the Pen <a href="https://codepen.io/MillardSeto/pen/QvmwGX/">Base Object</a> by Millard Seto (<a href="http://codepen.io/MillardSeto">@MillardSeto</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
     <h3>Summary</h3>
     <p>The javascript prototype, prototype chaining, constructor chaining, and overrides
